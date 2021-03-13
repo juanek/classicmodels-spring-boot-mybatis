@@ -1,0 +1,8 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ar.com.juanek.mapper.PaymentsMapper">
+    <select id="paymentsReceived" resultType="double">
+        SELECT sum(amount) as total FROM payments
+    </select>
+</mapper>

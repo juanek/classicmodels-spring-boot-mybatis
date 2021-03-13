@@ -1,0 +1,11 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ar.com.juanek.mapper.CustomerMapper">
+    <select id="accountRepresentative" resultType="Map">
+        SELECT customerName
+        , CONCAT(e.firstName,' ',e.lastName)
+        FROM customers AS c INNER JOIN employees AS
+        e ON c.salesRepEmployeeNumber = e.employeeNumber;
+    </select>
+</mapper>
