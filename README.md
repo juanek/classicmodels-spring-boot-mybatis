@@ -1,34 +1,32 @@
 # Classicmodels Spring-Boot-Mybatis
 
-## Create image Docker-MySQL.
+## Create a docker image.
 
 ``` console
 cd classicmodels-spring-boot-mybatis
 ``` 
 ```console
-docker build -t my-mysql .
+docker build -t mysql-classicmodels:1 .
 ```
+## Create a docker container.
 ```console
-docker run -d -p 3300:3306 --name my-mysql -e MYSQL_ROOT_PASSWORD=root my-mysql
+docker run -d -p 3300:3306 --name classicmodels-db -e MYSQL_ROOT_PASSWORD=root mysql-classicmodels:1
+``` 
+## Execute an interactive bash shell on the container.
+```console
+docker exec -it classicmodels-db bash
 ``` 
 
-```console
-docker exec -it my-mysql bash
-``` 
-```console
-docker exec -i my-mysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < src/main/resource/mysqlsampledatabase.sql
-``` 
-
-## Start a my-mysql docker image.
+## Start a docker container.
 
 ```console
-docker start my-mysql
+docker start classicmodels-db
 ``` 
 
-## Stop a my-mysql docker image.
+## Stop a docker container.
 
 ```console
-docker stop my-mysql
+docker stop classicmodels-db
 ```
 
 ## Run application.
